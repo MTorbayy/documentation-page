@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>Documentation JS</header>
+        <ul>
+          <li><a class="nav-link" href="#Introduction">Introduction</a>
+          </li>
+          <li><a class="nav-link" href="#Hello_World">Hello World</a>
+          </li>
+          <li><a class="nav-link" href="#Variables">Variables</a>
+          </li>
+          <li><a class="nav-link" href="#Déclaration_de_variables">Déclaration de variables</a>
+          </li>
+          <li><a class="nav-link" href="#Les_portées_de_variables">Les portées de variables</a>
+          </li>
+          <li><a class="nav-link" href="#Les_variables_globales">Les variables globales</a>
+          </li>
+          <li><a class="nav-link" href="#Constantes">Constantes</a>
+          </li>
+          <li><a class="nav-link" href="#Types_de_données">Types de données</a>
+          </li>
+          <li><a class="nav-link" href="#Instruction_if...else">Instruction if...else</a>
+          </li>
+          <li><a class="nav-link" href="#Les_déclarations_de_fonctions">Les déclarations de fonctions</a>
+          </li>
+          <li><a class="nav-link" href="#Références">Références</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <main id="main-doc">
+        
+        <section class="main-section" id="Introduction">
+          <header>Introduction</header>
+          <article>
+            <p>JavaScript est un langage de script, multi-plateforme et orienté objet. C'est un langage léger qui doit faire partie d'un environnement hôte (un navigateur web par exemple) pour qu'il puisse être utilisé sur les objets de cet environnement.</p>
+      
+            <p>JavaScript contient une bibliothèque standard d'objets tels que Array, Date, et Math, ainsi qu'un ensemble d'éléments de langage tels que les opérateurs, les structures de contrôles et les instructions. Ces fonctionnalités centrales et natives de JavaScript peuvent être étendues de plusieurs façons en fournissant d'autres objets, par exemple :</p>
+            
+            <ul>
+              <li>JavaScript côté client étend ces éléments de base en fournissant des objets pour contrôler le navigateur et le Document Object Model (DOM). Par exemple, les extensions du langage côté client permettent de placer des éléments dans un formulaire HTML, de réagir aux événements déclenchés par l'utilisateur (les clics, la saisie d'un formulaire, les actions de navigation, etc.).</li>
+              <li>JavaScript côte serveur étend ces éléments de base avec des objets utiles pour le fonctionnement sur un serveur tels que la possibilité de communiquer avec une base de données, manipuler des fichiers, passer d'une application à une autre, etc.</li>
+            </ul>
+          </article>
+        </section>
+        
+        <section class="main-section" id="Hello_World">
+          <header>Hello World</header>
+          
+          <p>Pour commencer à écrire du JavaScript, ouvrez votre console web en mode éditeur multiligne et écrivez votre premier « Hello world » en JavaScript.</p>
+          
+          <div class="test"><code>function saluer(utilisateur) {
+        return "Bonjour " + utilisateur;
+      }
+      
+      saluer("Alice"); // "Bonjour Alice"</code></div>
+          
+          
+        </section>
+        
+        <section class="main-section" id="Variables">
+          <header>Variables</header>
+          
+          <p>Les variables sont utilisées comme des noms symboliques désignant les valeurs utilisées dans l'application. Les noms des variables sont appelés identifiants. Ces identifiants doivent respecter certaines règles.</p>
+          
+          <p>Un identifiant JavaScript doit commencer par une lettre, un tiret bas (_) ou un symbole dollar ($). Les caractères qui suivent peuvent être des chiffres (0 à 9). À noter : puisque Javascript est sensible aux majuscules et minuscules: les lettres peuvent comprendre les caractères de « A » à « Z » (en majuscule) mais aussi les caractères  de « a » à « z » (en minuscule).</p>
+          
+          <p>Voici des exemples d'identifiants valides : Nombre_touches, temp99, $credit, et _nom.</p>
+        </section>
+        
+        <section class="main-section" id="Déclaration_de_variables">
+          <header>Déclaration de variables</header>
+          
+          <p>Il est possible de déclarer des variables de plusieurs façons :</p>
+          
+          <ul>
+            <li>En utilisant le mot-clé var, par exemple : var x = 42. Cette syntaxe peut être utilisée pour déclarer des variables locales ou globales selon le contexte d'exécution.</li>
+            <li>En utilisant le mot-clé const ou le mot-clé let, par exemple avec let y = 13. Cette syntaxe peut être utilisée pour déclarer une variable dont la portée sera celle du bloc. Voir le paragraphe sur les portées des variables ci-après.</li>
+          </ul>
+        </section>
+        
+        <section class="main-section" id="Les_portées_de_variables">
+          <header>Les portées de variables</header>
+          <p>Lorsqu'une variable est déclarée avec var en dehors des fonctions, elle est appelée variable globale car elle est disponible pour tout le code contenu dans le document. Lorsqu'une variable est déclarée dans une fonction, elle est appelée variable locale car elle n'est disponible qu'au sein de cette fonction.</p>
+          <p>Avant ECMAScript 2015 (ES6), JavaScript ne définissait pas de portée pour une instruction de bloc ; les éléments du bloc seront locaux pour le code qui contient le bloc (que ce soit une fonction ou le contexte global). Ainsi, l'exemple qui suit affichera 5 car la portée de x est la fonction (ou le contexte global) dans lequel x est déclaré, pas le bloc (correspondant à l'instruction if dans ce cas) :</p>
+          
+          <code>if (true) {
+        var x = 5;
+      }
+      console.log(x); // x vaut 5</code>
+          
+          <p>La déclaration let, introduite avec ECMAScript 2015, ajoute un nouveau comportement :</p>
+          
+          <code>if (true) {
+        let y = 5;
+      }
+      console.log(y); // ReferenceError: y is not defined</code>
+        </section>
+        
+        <section class="main-section" id="Les_variables_globales">
+          <header>Les variables globales</header>
+          <p>Les variables globales sont en réalité des propriétés de l'objet global. Dans les pages web, l'objet global est window, et on peut donc accéder ou modifier la valeur de variables globales en utilisant la syntaxe suivante : window.variable .</p>
+        </section>
+        
+        
+        <section class="main-section" id="Constantes">
+          <header>Constantes</header>
+          <p>Il est possible de créer des constantes en lecture seule en utilisant le mot-clé const. La syntaxe d'un identifiant pour une constante est la même que pour les variables (elle doit débuter avec une lettre, un tiret du bas, un symbole dollar et peut contenir des caractères numériques, alphabétiques et des tirets bas voire des caractères Unicode).</p>
+          
+          <code>const préfixe = '212';</code>
+          
+          <p>Une constante ne peut pas changer de valeur grâce à une affectation ou être re-déclarée pendant l'exécution du script.</p>
+          
+          <p>Les règles de portée des constantes sont les mêmes que pour les variables, à l'exception du mot-clé const qui est obligatoire. S'il est oublié, l'identifiant sera considéré comme celui d'une variable.</p>
+          
+          <p>Il est impossible de déclarer une constante avec le même nom qu'une autre variable ou fonction dans la même portée.</p>
+        </section>
+        
+        <section class="main-section" id="Types_de_données">
+          <header>Types de données</header>
+          <p>La dernière version du standard ECMAScript définit sept types de données :</p>
+          <ul>
+            <li>Six types de données primitifs :
+            <ul>
+              <li>Type booléen : true et false.</li>
+              <li>Type nul (null), un mot-clé spécial pour indiquer une valeur nulle (au sens informatique). JavaScript étant sensible à la casse, null n'est pas Null, NULL, ou toute autre variante.</li>
+              <li>Un type pour les valeurs indéfinies (undefined).</li>
+              <li>Un type pour les nombres entiers ou décimaux. Par exemple : 42 ou 3.14159.</li>
+              <li>Un type pour représenter les grands nombres entiers BigInt, par exemple 9007199254740992n.</li>
+              <li>Un type pour les chaînes de caractères, une séquence de caractères qui représente une valeur textuelle. Par exemple : "Coucou"</li>
+              <li>Un type pour les symboles, apparus avec ECMAScript 2015 (ES6). Ce type est utilisé pour représenter des données immuables et uniques.
+      </li>
+            </ul>
+            </li>
+            <li>et un type pour les objets (Object)</li>
+          </ul>
+          <p>Bien que cette description couvre peu de types de données, ceux-ci vous permettent d'implémenter une grande variété de fonctions au sein de vos applications. Les objets et les fonctions sont parmi les briques fondamentales du langage. On peut considérer, à première vue, les objets comme des conteneurs de valeurs et de fonctions pour une application.</p>
+        </section>
+        
+        <section class="main-section" id="Instruction_if...else">
+          <header>Instruction if...else</header>
+        </section>
+        <p>On utilise l'instruction if lorsqu'on souhaite exécuter une instruction si une condition logique est vérifiée (vraie). La clause else est optionnelle et permet de préciser les instructions à exécuter si la condition logique n'est pas vérifiée (l'assertion est fausse). Voici un exemple qui illustre l'utilisation de l'instruction if :</p>
+        
+        <code>if (condition) {
+        instruction_1;
+      } else {
+        instruction_2;
+      }</code>
+        
+        <p>condition peut correspondre à n'importe quelle expression qui est évaluée à true (vrai) ou false (faux). Voir la page sur les booléens pour plus d'informations sur les évaluations qui fournissent les valeurs true ou false. Si la condition vaut true, instruction_1 est exécutée, sinon instruction_2 sera exécutée. instruction_1 et instruction_2 peuvent correspondre à n'importe quelle instruction, y compris d'autres instructions if.</p>
+        
+        <p>Si on doit tester différentes conditions les unes à la suite des autres, il est possible d'utiliser else if pour lier les différents tests. On l'utilise de la façon suivante :</p>
+        
+        <code>if (condition_1) {
+        instruction_1;
+      } else if (condition_2) {
+        instruction_2;
+      } else if (condition_n) {
+        instruction_n;
+      } else {
+        dernière_instruction;
+      }</code>
+        
+        <p>Afin d'exécuter plusieurs instructions, on peut les regrouper grâce aux blocs ({ ... }) vus précédemment. </p>
+        
+        <section class="main-section" id="Les_déclarations_de_fonctions">
+          <header>Les déclarations de fonctions</header>
+          <p>Une définition de fonction (aussi appelée déclaration de fonction ou instruction de fonction) est construite avec le mot-clé function, suivi par :</p>
+          <ul>
+            <li>Le nom de la fonction.</li>
+            <li>Une liste d'arguments à passer à la fonction, entre parenthèses et séparés par des virgules.</li>
+            <li>Les instructions JavaScript définissant la fonction, entre accolades, { }.</li>
+          </ul>
+          
+          <p>Le code suivant, par exemple, définit une fonction intitulée carré :</p>
+          
+          <code>function carré(nombre) {
+        return nombre * nombre;
+            }</code>
+            
+            <p>La fonction carré prend un seul argument, appelé nombre. La fonction est composée d'une seule instruction qui renvoie l'argument de la fonction (nombre) multiplié par lui-même. L'instruction return spécifie la valeur qui est renvoyée par la fonction.</p>
+        </section>
+        
+        <section class="main-section" id="Références">
+          <header>Références</header>
+          <p>Toute cette documentation vient du site <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide">MDN</a></p>
+            
+          </section>
+      </main>
+</body>
+</html>
